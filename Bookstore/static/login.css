@@ -1,0 +1,48 @@
+body{
+   padding:0;
+   margin:0;
+}
+section{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.container{
+   width: 25rem;
+   height: 30rem;
+   padding:2rem;
+   border-radius: 8px;
+
+}
+
+label{
+   margin-bottom: 0.5rem;
+}
+
+input[type="text"],
+input[type="password"]{
+   width: 100%;
+   padding: 5px;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   box-sizing: border-box;
+
+}
+
+button{
+   width: 100%;
+   margin-top: 1rem;
+   background: #161716;
+   border: 1px solid #ccc;
+   border-radius: 4px;
+   box-sizing: border-box;
+}
+
+button:hover{
+    background-color: rgba(0, 0, 1, 1);
+}
+
+a{
+   text-decoration: none;
+}

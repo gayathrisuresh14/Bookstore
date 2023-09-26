@@ -1,0 +1,44 @@
+{% extends 'home.html' %}
+
+{% block content %}
+<body class="bg-light">
+<section>
+  <div class="container py-3">
+
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-5 p-4 rounded" style="background-color: #c5d3db;">
+        <h2 class="text-center mb-3">Contact Us</h2>
+        <form method="post">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input id="name" name="name" class="form-control">
+          </div>
+
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input id="email" type="text" name="email" class="form-control">
+          </div>
+
+          <div class="mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea id="message" name="message" class="form-control" placeholder="Type your message here" rows="5"></textarea>
+          </div>
+
+          <div class="text-center">
+            <button type="submit" class="btn btn-dark w-100">Submit</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+</body>
+{% endblock content %}

@@ -1,0 +1,70 @@
+{% extends 'home.html' %}
+{% block content %}
+
+<body class="bg-light">
+
+<div class="container-fluid bg-light py-5">
+    <div class="row justify-content-center mb-3 bg-light">
+        <div class="col-md-10">
+            <div class="card shadow-0 border rounded-3">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-3 mb-4">
+                            <div class="bg-image text-center">
+                                <img class="img-fluid" src="{{object.image_url}}" alt="..." style="width: 16rem; height: 22rem;">
+
+                            </div>
+                        </div>
+                        <div class="col-md-6 border-start">
+                            <h4>{{object.title}}</h4>
+                            <p class="small">by <span class="text-success">{{ object.author }}</span> (Author)</p>
+                            <br>
+                            <h6 class="mb-3">Genre : {{object.genre}}</h6>
+                            <hr>
+                            <p style="text-align: justify;">{{ object.description }}</p>
+                        </div>
+                        <div class="col-md-3 border-sm-start-none border-start p-3">
+                            <h5 class="mb-4">Rs {{ object.price }} /-</h5>
+                            <h5 class="text-success mt-5 mb-3">Free Shipping</h5>
+                            {% if object.book_available %}
+                            <h5 class="text-success mb-5">Available</h5>
+
+                            <div class="d-flex flex-column mt-4">
+                                <a href="{% url 'add_to_cart' book_id=book.id %}" onclick="alert('Item added to cart')">
+                                    <button class="btn btn-dark w-100 mb-2">Add to Cart</button>
+                                </a>
+                                <a href="{% url 'checkout' object.id %}">
+                                    <button class="btn btn-dark w-100 mb-2">Buy Now</button>
+                                </a>
+
+                    <h6 class="mt-5"><a href="{% url 'book_list' %}" class="text-body" style="text-decoration: none;"><i
+                          class="fas fa-long-arrow-alt-left me-2"></i>Back to shop</a></h6>
+
+
+                                {% else %}
+
+                                <h5 class="text-danger mb-5">Out of Stock..!</h5>
+                                <a href="{% url 'book_list' %}">
+                                    <button class="btn btn-dark w-100 mb-2">Continue Shopping</button>
+                                </a>
+                                <a href="#">
+                                    <button class="btn btn-dark w-100 mb-2 text-decoration-line-through">Buy Now</button>
+                                </a>
+
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+</body>
+{% endblock content %}

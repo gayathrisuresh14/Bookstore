@@ -1,0 +1,71 @@
+{% extends 'home.html' %}
+{% block content %}
+
+<body>
+
+<style>
+    .card{
+       transition: all 0.3s;
+    }
+    .card:hover{
+       transform: scale(1.02);
+    }
+</style>
+
+<section style="background-color: #d2c9ff">
+    <div class="container py-5">
+        <div class="row">
+
+            {% for book in books %}
+            <div class="col-md-3 mb-4">
+                <a href="{% url 'book_detail' book.id %}" class="text-decoration-none" style="color: inherit;">
+                <div class="card rounded-5 p-2" style="width: 17rem;">
+                    <div class="text-center">
+                        <img src="{{ book.image_url }}" class="card-img-top px-3" alt="..." style="height: 18rem;">
+                    </div>
+
+                    <div class="card-body">
+                        <hr class="mt-0 mb-2">
+                        <h5 class="card-title text-truncate">{{ book.title }}</h5>
+                        <p class="card-title text-truncate">{{book.author}}</p>
+                        <p class="card-text">Rs{{ book.price }}/-</p>
+                    </div>
+                </div></a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+
+<!--<div class="container-fluid m-4">-->
+<!--    <div class="row">-->
+
+<!--        {% for book in books %}-->
+
+<!--        <div class="col-md-3">-->
+<!--            <div class="card" style="width: 15rem;">-->
+<!--                <img src="{{ book.image_url }}" class="card-img-top" alt="..." style="height: 20rem;">-->
+<!--                <div class="card-body">-->
+<!--                    <h5 class="card-title">{{ book.title }}</h5>-->
+<!--                    <h6 class="card-title">Author : {{ book.author }}</h6>-->
+<!--                    <p class="card-text">Rs{{ book.price }}/-</p>-->
+<!--                    <a href="{% url 'book_detail' book.id %}" class="btn btn-primary">View</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+
+<!--        {% endfor %}-->
+
+<!--    </div>-->
+<!--</div>-->
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+
+</body>
+{% endblock content %}
